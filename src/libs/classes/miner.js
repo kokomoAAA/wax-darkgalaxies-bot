@@ -4,25 +4,21 @@ const { Tx } = require("./transactions/tx");
 const { Utils } = require("../utils/utils");
 
 /* class that will execute the code*/
-class Miner {
-    constructor(wallet) {
+class Galaxy {
+    constructor(wallet, lookUpTime) {
         this.wallet = wallet;
+        this.lookUpTime = lookUpTime;
+
         this.tx = new Tx(wallet);
-    }
-
-    async init() {
-        console.log("working");
-
-        while (true) {
-            await this.work();
-        }
     }
 
     async work() {
         console.log("Good News");
-        await this.tx.mine();
-        await Utils.sleep(1000);
+        while (true) {
+            await this.tx.mine();
+            await Utils.sleep(this.lookUpTime);
+        }
     }
 }
 
-module.exports = { Miner };
+module.exports = { Galaxy };

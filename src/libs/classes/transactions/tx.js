@@ -14,61 +14,13 @@ class Tx {
     /* general template for an action*/
     async mine() {
         const contract = {
-            name: "galacticgame", // example
+            name: "darkminingsc", // example
             action: "mine", // example
-            params: { nm: this.wallet.executorAddress, ind: 0 }, // example
+            params: { account: this.wallet.executorAddress, deck_id: 1 }, // example
         };
 
-        const txData = setTxData(this.wallet, contract);
-
-        const [response, error] = await sendTx(this.wallet, txData);
+        const [response, error] = await sendTx(this.wallet, contract);
         if (response) return;
-
-        // handle errors
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-    }
-
-    async login() {
-        const contract = {
-            name: "galacticgame", // example
-            action: "login", // example
-            params: { nm: this.wallet.executorAddress }, // example
-        };
-
-        const txData = setTxData(this.wallet, contract);
-        const [response, error] = await sendTx(this.wallet, txData);
-        if (response) return;
-
-        // handle errors
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
-
-        if (error.includes("") == 1) {
-            // call another transaction
-        }
     }
 }
 

@@ -1,13 +1,17 @@
 const { Wallet } = require("wax-bot-lib");
-const { Miner } = require("./libs/classes/miner");
+const { Galaxy } = require("./libs/classes/miner");
 const { config } = require("../config/config");
 
-const executorWallet = JSON.parse(process.argv[2]);
-const coSignWallet = JSON.parse(process.argv[3]);
-const lookUpTime = process.argv[4];
+const executorWallet = {
+    address: process.env.ADDRESS,
+    private_key: process.env.PRIVATE_KEY,
+};
 
-const wallet = new Wallet(executorWallet, coSignWallet, config.SERVER_ENDPOINT);
+const coSignWallet = {}; // no cosign needed
+const lookUpTime = 1000; // example
+
+const wallet = new Wallet(config.SERVER_ENDPOINT, executorWallet, coSignWallet);
 wallet.init();
 
-const miner = new Miner(wallet, lookUpTime);
-miner.init();
+const miner = new Galaxy(wallet, lookUpTime);
+miner.work();

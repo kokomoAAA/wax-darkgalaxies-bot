@@ -33,6 +33,6 @@
         "eosjs": "^22.1.0",
         "eosjs-ecc": "^4.0.7",
         "node-fetch": "2.6",
-        "wax-bot-lib": "^1.2.8"
+        "wax-bot-lib": "^1.8.4"
     }
 }
